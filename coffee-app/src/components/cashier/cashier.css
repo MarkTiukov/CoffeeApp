@@ -1,22 +1,4 @@
-.cashier {
-    display: flex;
-    flex-direction: row;
-}
-
-.cashier-menu {
-    width: 80%;
-    height: 100%;
-    background-color: blueviolet;
-}
-
-.active-orders {
-    width: 30%;
-    height: 100%;
-    align-items: stretch;
-    background-color: cadetblue;
-
-}
-
 .active-orders-header {
     text-align: center;
+    background-color: cadetblue;
 }
