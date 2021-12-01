@@ -7,33 +7,23 @@ import './order_creator.css';
 
 const { TabPane } = Tabs;
 
+const sections = ["Coffee", "Drinks"];
+const section_icons = { "Coffee": <CoffeeOutlined /> } // TODO: add custom icons
+const section_entries = { "Coffee": "Coffee section", "Drinks": "All drinks sections" };
+
+
 export default class OrderCreator extends React.Component {
-    // TODO: add custom icons
 
     render() {
         return (
-            <Tabs defaultActiveKey="2">
-                <TabPane
-                    tab={
-                        <span>
-                            <CoffeeOutlined />
-                            Coffee
-                        </span>
-                    }
-                    key="1"
-                >
-                    Coffee section
-                </TabPane>
-                <TabPane
-                    tab={
-                        <span>
-                            Drinks
-                        </span>
-                    }
-                    key="2"
-                >
-                    All drinks section
-                </TabPane>
+            <Tabs defaultActiveKey="1" type="card" centered>
+                {sections.map((value, index) => {
+                    return (
+                        <TabPane tab={<span>{section_icons[value]} {value}</span>} key={index + 1}>
+                            {section_entries[value]}
+                        </TabPane>
+                    )
+                })}
             </Tabs>
         );
     }
