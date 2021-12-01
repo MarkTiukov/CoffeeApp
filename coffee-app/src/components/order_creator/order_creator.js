@@ -4,6 +4,7 @@ import Icon from '@ant-design/icons';
 import { CoffeeOutlined } from '@ant-design/icons';
 
 import './order_creator.css';
+import MenuSelector from "../menu_selector/menu_selector";
 
 const { TabPane } = Tabs;
 
@@ -20,7 +21,8 @@ export default class OrderCreator extends React.Component {
                 {sections.map((value, index) => {
                     return (
                         <TabPane tab={<span>{section_icons[value]} {value}</span>} key={index + 1}>
-                            {section_entries[value]}
+                            {/* {section_entries[value]} */}
+                            <MenuSelector menu_name={value} />
                         </TabPane>
                     )
                 })}
