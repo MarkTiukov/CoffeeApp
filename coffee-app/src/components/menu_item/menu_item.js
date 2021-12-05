@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Popover } from "antd";
 import React from "react";
 
 import './menu_item.css';
@@ -7,14 +7,22 @@ export default class MenuItem extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { item_name: props.item_name };
+        const { name, price } = props.item;
+        this.state = { item_name: name, item_price: price };
     }
 
     render() {
+        const content = (
+            <div>
+                <b>Цена</b>: {this.state.item_price}
+            </div>
+        )
         return (
-            <Button type="primary">
-                {this.state.item_name}
-            </Button>
+            <Popover content={content} title={this.state.item_name}>
+                <Button type="primary">
+                    {this.state.item_name}
+                </Button>
+            </Popover>
         )
     }
 }

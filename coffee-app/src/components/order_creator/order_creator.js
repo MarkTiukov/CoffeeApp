@@ -1,10 +1,10 @@
 import React from "react";
-import { Tabs } from "antd";
-import Icon from '@ant-design/icons';
+import { Col, Row, Tabs } from "antd";
 import { CoffeeOutlined } from '@ant-design/icons';
 
 import './order_creator.css';
 import MenuSelector from "../menu_selector/menu_selector";
+import NewOrder from "../new_order";
 
 const { TabPane } = Tabs;
 
@@ -22,11 +22,19 @@ export default class OrderCreator extends React.Component {
                     return (
                         <TabPane tab={<span>{section_icons[value]} {value}</span>} key={index + 1}>
                             {/* {section_entries[value]} */}
-                            <MenuSelector menu_name={value} />
+                            <Row>
+                                <Col flex="auto">
+                                    <MenuSelector menu_name={value} />
+                                </Col>
+                                <Col flex="300px">
+                                    <NewOrder />
+                                </Col>
+                            </Row>
                         </TabPane>
                     )
-                })}
-            </Tabs>
+                })
+                }
+            </Tabs >
         );
     }
 
