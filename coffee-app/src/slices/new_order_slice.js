@@ -8,7 +8,7 @@ export const newOrderSlice = createSlice({
     },
     reducers: {
         addItem: (state, item) => {
-            state.items.push(item);
+            state.items.push(item.payload);
         },
     }
 });

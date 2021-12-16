@@ -10,7 +10,7 @@ const { TabPane } = Tabs;
 
 const sections = ["Coffee", "Drinks"];
 const section_icons = { "Coffee": <CoffeeOutlined /> } // TODO: add custom icons
-const section_entries = { "Coffee": "Coffee section", "Drinks": "All drinks sections" };
+// const section_entries = { "Coffee": "Coffee section", "Drinks": "All drinks sections" };
 
 
 export default class OrderCreator extends React.Component {
