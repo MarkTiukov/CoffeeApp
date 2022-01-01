@@ -10,10 +10,15 @@ export const newOrderSlice = createSlice({
         addItem: (state, item) => {
             state.items.push(item.payload);
         },
+        clearItems: (state) => {
+            state.items = [];
+        },
     }
 });
 
 // Action creators are generated for each case reducer function
-export const { addItem } = newOrderSlice.actions;
+export const { addItem, clearItems } = newOrderSlice.actions;
+
+export const selectItems = state => state.new_order.items;
 
 export default newOrderSlice.reducer;
