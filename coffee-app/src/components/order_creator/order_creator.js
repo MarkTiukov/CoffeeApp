@@ -5,6 +5,7 @@ import { CoffeeOutlined } from '@ant-design/icons';
 import './order_creator.css';
 import MenuSelector from "../menu_selector/menu_selector";
 import NewOrder from "../new_order";
+import { get_all_menu_items } from "../../actions/menu_actions";
 
 const { TabPane } = Tabs;
 
@@ -14,6 +15,10 @@ const section_icons = { "Coffee": <CoffeeOutlined /> } // TODO: add custom icons
 
 
 export default class OrderCreator extends React.Component {
+
+    componentDidMount() {
+        get_all_menu_items();
+    }
 
     render() {
         return (
