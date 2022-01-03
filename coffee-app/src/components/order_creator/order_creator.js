@@ -10,8 +10,6 @@ import { get_all_categories } from "../../actions/menu_actions";
 const { TabPane } = Tabs;
 
 const section_icons = { "Coffee": <CoffeeOutlined /> } // TODO: add custom icons
-// const section_entries = { "Coffee": "Coffee section", "Drinks": "All drinks sections" };
-
 
 export default class OrderCreator extends React.Component {
 
@@ -25,7 +23,7 @@ export default class OrderCreator extends React.Component {
             .then(data => data.map(entry => entry['name']))
             .then(categories => {
                 this.setState({ sections: categories });
-                console.log('downloaded');
+                console.log('downloaded categories');
             });
     };
 
@@ -39,7 +37,6 @@ export default class OrderCreator extends React.Component {
                 {this.state['sections'].map((value, index) => {
                     return (
                         <TabPane tab={<span>{section_icons[value]} {value}</span>} key={index + 1}>
-                            {/* {section_entries[value]} */}
                             <Row>
                                 <Col flex="auto">
                                     <MenuSelector menu_name={value} />
