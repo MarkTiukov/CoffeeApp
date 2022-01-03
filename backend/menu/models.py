@@ -13,7 +13,7 @@ class MenuItem(models.Model):
     price = models.IntegerField(verbose_name='price')
     description = models.TextField(verbose_name='description')
     amount = models.IntegerField(verbose_name='left in stock', blank=True, null=True)
-    category = models.ForeignKey(MenuCategory, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(MenuCategory, verbose_name='category', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name
