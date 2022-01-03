@@ -16,7 +16,7 @@ function MenuItem(props) {
     return (
         <Popover content={content} title={name}>
             <Button type="primary" onClick={() => {
-                dispatch(addItem(name));
+                dispatch(addItem(props.item));
             }}>
                 {name}
             </Button>

@@ -4,7 +4,7 @@ import React from "react";
 import Meta from "antd/lib/card/Meta";
 
 function OrderCard(props) {
-    const name = props.name;
+    const { name, cost } = props.order;
     return (
         <Card
             hoverable={true}
@@ -14,7 +14,7 @@ function OrderCard(props) {
             ]}>
             <Meta
                 title={name}
-                description="xxx рублей"
+                description={cost + " рублей"}
             />
         </Card >
     )
