@@ -2,23 +2,27 @@ import { Button, Popover } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../slices/new_order_slice";
+import { take_item } from "../../actions/menu_actions";
 
 import './menu_item.css';
 
 function MenuItem(props) {
     const dispatch = useDispatch();
-    const { name, price } = props.item;
+    const item = props.item;
     const content = (
         <div>
-            <b>Цена</b>: {price}
+            <b>Цена</b>: {item.price}
         </div>
     )
     return (
-        <Popover content={content} title={name}>
+        <Popover content={content} title={item.name}>
             <Button type="primary" onClick={() => {
-                dispatch(addItem(props.item));
+                if (item.amount !== null) {
+                    take_item(item);
+                }
+                dispatch(addItem(item));
             }}>
-                {name}
+                {item.name}
             </Button>
         </Popover>
     )

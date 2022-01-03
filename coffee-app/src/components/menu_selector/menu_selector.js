@@ -23,6 +23,10 @@ export default class MenuSelector extends React.Component {
         this.download_items();
     }
 
+    componentDidUpdate() {
+        this.download_items();
+    }
+
     render() {
         const { menu } = this.state;
         return (
