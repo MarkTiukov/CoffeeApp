@@ -13,12 +13,17 @@ export default class MenuSelector extends React.Component {
     }
 
     download_items = () => {
-        console.log("category", this.state.category);
         get_menu_items_in_category(this.state.category)
-            .then(data => this.setState({ menu: data }));
+            .then(data => {
+                this.setState({ menu: data });
+            });
     }
 
     componentDidMount() {
+        this.download_items();
+    }
+
+    componentDidUpdate() {
         this.download_items();
     }
 

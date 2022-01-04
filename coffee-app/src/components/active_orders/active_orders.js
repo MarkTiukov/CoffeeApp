@@ -10,7 +10,7 @@ function ActiveOrders() {
     let orders_cards = [];
     if (useSelector(selectActiveNumber) > 0) {
         for (const [key, value] of Object.entries(orders)) {
-            orders_cards.push(<OrderCard name={value} />);
+            orders_cards.push(<OrderCard order={value} />);
         }
     }
     return (

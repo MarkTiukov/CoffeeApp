@@ -24,3 +24,8 @@ class ItemByCategoryView(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
+
+      
+class ItemTake(generics.RetrieveUpdateAPIView):
+    serializer_class = MenuItemSerializer
+    queryset = MenuItem.objects.all()

@@ -5,13 +5,16 @@ export const newOrderSlice = createSlice({
     initialState: {
         title: "new_order",
         items: [],
+        cost: 0,
     },
     reducers: {
         addItem: (state, item) => {
             state.items.push(item.payload);
+            state.cost += item.payload.price;
         },
         clearItems: (state) => {
             state.items = [];
+            state.cost = 0;
         },
     }
 });
@@ -20,5 +23,6 @@ export const newOrderSlice = createSlice({
 export const { addItem, clearItems } = newOrderSlice.actions;
 
 export const selectItems = state => state.new_order.items;
+export const selectCost = state => state.new_order.cost;
 
 export default newOrderSlice.reducer;
